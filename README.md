@@ -24,3 +24,8 @@ the browser is displaying:
 ```responding: test```
 
 but the log shows no sign of the advice being executed.
+
+## Solution
+
+there is now a [solution branch](https://github.com/simon-void/SpringWebAOP-MCVE/tree/solution)
+with an working implementation. (the fix was to replace `@target` with `@annotation` in the pointcut.)
