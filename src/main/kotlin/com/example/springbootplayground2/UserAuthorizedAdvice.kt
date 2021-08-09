@@ -15,7 +15,7 @@ annotation class UserAuthorized(val roles: Array<String>)
 @Aspect
 class UserAuthorizedAdvice {
 
-    @Pointcut("@target(com.example.springbootplayground2.UserAuthorized) && within(com.example..* )")
+    @Pointcut("@annotation(com.example.springbootplayground2.UserAuthorized) && within(com.example..* )")
     fun userAuthorizedMethods() {}
 
     @Before("userAuthorizedMethods()")
@@ -25,7 +25,5 @@ class UserAuthorizedAdvice {
         val targetClass = target?.javaClass?.canonicalName ?: "null"
         val msg = "target: $targetClass, signature: $signature"
         println(msg)
-        // just to make extra sure that invoking this advice would be noticeable
-        throw RuntimeException(msg)
     }
 }
