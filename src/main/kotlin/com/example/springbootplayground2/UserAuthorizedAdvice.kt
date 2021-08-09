@@ -15,6 +15,7 @@ annotation class UserAuthorized(val roles: Array<String>)
 @Aspect
 class UserAuthorizedAdvice {
 
+    // the within-condition isn't strictly necessary but a build-time optimization. Make sure to adapt it to your base-package.
     @Pointcut("@annotation(com.example.springbootplayground2.UserAuthorized) && within(com.example..* )")
     fun userAuthorizedMethods() {}
 
